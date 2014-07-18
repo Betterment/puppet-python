@@ -12,7 +12,7 @@ class python::global($version = '2.7.6') {
     ensure_resource('python::version', $version)
     $require = Python::Version[$version]
   } else {
-    $require = undef
+    $require = Repository["${python::pyenv_root}"]
   }
 
   file { "${python::pyenv_root}/version":
